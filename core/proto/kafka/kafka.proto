@@ -1,0 +1,109 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+package kafkaMessages;
+
+option go_package = "./;kafkaMessages";
+
+
+message ProductCreate {
+  string ProductID = 1;
+  string Name = 2;
+  string Description = 3;
+  double Price = 4;
+}
+
+message ProductUpdate {
+  string ProductID = 1;
+  string Name = 2;
+  string Description = 3;
+  double Price = 4;
+}
+
+message Product {
+  string ProductID = 1;
+  string Name = 2;
+  string Description = 3;
+  double Price = 4;
+  google.protobuf.Timestamp CreatedAt = 6;
+  google.protobuf.Timestamp UpdatedAt = 7;
+}
+
+message ProductCreated {
+  Product Product = 1;
+}
+
+message ProductUpdated {
+  Product Product = 1;
+}
+
+message ProductDelete {
+  string ProductID = 1;
+}
+
+message ProductDeleted {
+  string ProductID = 1;
+}
+
+// video
+message VideoCreate {
+  uint32 videoID = 1;
+  string Name = 2;
+  string Description = 3;
+  string VideoUrl = 4;
+  string Config = 5;
+  string Path_resource = 6;
+  string LevelSystem = 7;
+  string Status = 8;
+  string Note = 9;
+  string Assign = 10;
+  string Author = 11;
+}
+
+message VideoUpdate {
+  uint32 videoID = 1;
+  string Name = 2;
+  string Description = 3;
+  string VideoUrl = 4;
+  string Config = 5;
+  string Path_resource = 6;
+  string LevelSystem = 7;
+  string Status = 8;
+  string Note = 9;
+  string Assign = 10;
+  string Author = 11;
+}
+
+message Video {
+  uint32 videoID = 1;
+  string Name = 2;
+  string Description = 3;
+  string VideoUrl = 4;
+  string Config = 5;
+  string Path_resource = 6;
+  string LevelSystem = 7;
+  string Status = 8;
+  string Note = 9;
+  string Assign = 10;
+  string Author = 11;
+  google.protobuf.Timestamp CreatedAt = 12;
+  google.protobuf.Timestamp UpdatedAt = 13;
+  google.protobuf.Timestamp DeletedAt = 14;
+}
+
+message VideoCreated {
+  Video Video = 1;
+}
+
+message VideoUpdated {
+  Video Video = 1;
+}
+
+message VideoDelete {
+  uint32 videoID = 1;
+}
+
+message VideoDeleted {
+  uint32 videoID = 1;
+}

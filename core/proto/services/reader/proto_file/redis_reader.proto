@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package readerService;
+
+option go_package = "./;readerService";
+
+import "redis_reader_message.proto";
+
+
+service readerRedisService {
+  rpc RemoveCachingByKey(RemoveCachingByKeyReq) returns (RemoveCachingByKeyRes);
+}

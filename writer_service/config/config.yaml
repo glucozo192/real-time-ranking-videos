@@ -1,0 +1,123 @@
+app:
+  env: local
+  secretKey: 6Sjzu95NWf1D6IGPLF1HK1KuAY1fU4J8
+  tokenToServer: a813ec766197294184a938c331b08e7e
+
+externalService:
+  #  media: https://media.dev.monkeyuni.net/
+  #  product: https://productmx.dev.monkeyuni.net
+  #  story: localhost:7002
+  #  media: http://localhost:8089
+
+  develop: https://apiv2.monkeyuni.net/
+  media: https://media.monkeyuni.net/
+  #  product: http://localhost:9001
+  product: https://productmx.dev.monkeyuni.net/
+  story: localhost:9094
+  award: https://api.dev.monkeyuni.com/award
+  lesson: https://api.dev.monkeyuni.com/stg_lesson
+  platform: https://api.dev.monkeyuni.com/stg_platform_go
+  user: https://app.monkeyuni.net/user/
+  app: https://api.monkeyuni.net
+  report: https://api.dev.monkeyuni.com/report/api/upgrade
+  k5Path: upload/cms_platform/video_k5_test
+  localPath: /Users/mac/Documents/Documents-cloud/Minhdt/monkey/data/
+
+serviceName: writer_service
+grpc:
+  port: :5002
+  readerServicePort: :5003
+  development: true
+http:
+  port: :9002
+  development: true
+  basePath: /api/v1
+  productsPath: /api/v1/products
+  debugHeaders: false
+  httpClientDebug: false
+  debugErrorsResponse: true
+  ignoreLogUrls: [ "metrics" ]
+probes:
+  readinessPath: /ready
+  livenessPath: /live
+  port: :3002
+  pprof: :6002
+  prometheusPath: /metrics
+  prometheusPort: :8002
+  checkIntervalSeconds: 10
+logger:
+  level: debug
+  devMode: false
+  encoder: json
+postgres:
+  host: 20.212.168.139
+  port: 3306
+  user: earlystart
+  password: Abcd1234!@!
+  dbName: edu_video
+  sslMode: false
+kafka:
+  brokers: [ "localhost:9092" ]
+  groupID: writer_microservice_consumer
+  initTopics: true
+kafkaTopics:
+# video topics
+  videoCreate:
+    topicName: video_create
+    partitions: 10
+    replicationFactor: 1
+  videoCreated:
+    topicName: video_created
+    partitions: 10
+    replicationFactor: 1
+  videoUpdate:
+    topicName: video_update
+    partitions: 10
+    replicationFactor: 1
+  videoUpdated:
+    topicName: video_updated
+    partitions: 10
+    replicationFactor: 1
+  videoDelete:
+    topicName: video_delete
+    partitions: 10
+    replicationFactor: 1
+  videoDeleted:
+    topicName: video_deleted
+    partitions: 10
+    replicationFactor: 1
+redis:
+  addr: "localhost:6379"
+  password: ""
+  db: 0
+  poolSize: 300
+serviceSettings:
+  redisVideoPrefixKey: "reader:video"
+  redisCommentPrefixKey: "reader:comment"
+  redisObjectPrefixKey: "reader:object"
+  redisReactionPrefixKey: "reader:reaction"
+  redisViewerPrefixKey: "reader:viewer"
+mongo:
+  uri: "mongodb://localhost:27017"
+  user: admin
+  password: admin
+  db: activity
+mongoCollections:
+  products: products
+  activityHistory: tbl_activity_histories
+jaeger:
+  enable: true
+  serviceName: writer_service
+  hostPort: "localhost:6831"
+  logSpans: false
+
+media:
+  #  cdn: https://vysqy4zclvobj.vcdn.cloud
+  #  s3: https://monkeymediadev.s3.ap-southeast-1.amazonaws.com
+  #  display: https://datav2.daybehoc.com
+  cdn: https://monkeymedia.vcdn.com.vn
+  s3: https://monkeymedia2020.s3.ap-southeast-1.amazonaws.com
+  display: https://vnmedia.monkeyuni.net
+
+storage:
+  disk: local

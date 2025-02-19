@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package readerService;
+
+option go_package = "./;readerService";
+
+message RemoveCachingByKeyReq {
+  string PrefixKey = 1;
+  string Key = 2;
+}
+
+message RemoveCachingByKeyRes {}
