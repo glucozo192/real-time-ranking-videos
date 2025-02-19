@@ -4,6 +4,7 @@ import (
 	"context"
 
 	"github.com/glu/video-real-time-ranking/core/pkg/tracing"
+	"github.com/glu/video-real-time-ranking/core/proto/services/reader/proto_buf"
 )
 
 func (s *grpcService) RemoveCachingByKey(ctx context.Context, req *readerService.RemoveCachingByKeyReq) (*readerService.RemoveCachingByKeyRes, error) {
